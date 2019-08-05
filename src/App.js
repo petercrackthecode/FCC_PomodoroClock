@@ -1,15 +1,11 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./styles/App.css";
 
 class App extends React.Component {
-  state= {};
+  state = {};
 
   render() {
-    return (
-      <div className="App">
-
-      </div>
-    );
+    return <div className="App" />;
   }
 }
 
