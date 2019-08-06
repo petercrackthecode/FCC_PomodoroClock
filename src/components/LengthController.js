@@ -3,6 +3,10 @@ import React from 'react';
 export function LengthController(props) {
     const name= props.id[0].toUpperCase() + props.id.substring(1);
     const id= props.id;
+    // 5 minutes jump when increment or decrement
+    const sectionStep= 5;
+    const m_sessionMax= 60, m_sessionMin= 5;
+
     return (
         <div id={props.id}>
             <h2 id={`${id}-label`}>{name} Length</h2>

@@ -4,7 +4,10 @@ import "./styles/App.css";
 import React from "react";
 
 class App extends React.Component {
-  state = {};
+  state = {
+    m_sessionLength: 25,
+    m_breakLength: 5,
+  };
 
   render() {
     return (
