@@ -7,6 +7,14 @@ export function LengthController(props) {
     const sectionStep= 5;
     const m_sessionMax= 60, m_sessionMin= 5;
 
+    const handleIncrement= () => {
+        props.handleIncrement(sectionStep, m_sessionMax);
+    };
+
+    const handleDecrement= () => {
+        props.handleDecrement(sectionStep, m_sessionMin);
+    };
+
     return (
         <div id={props.id}>
             <h2 id={`${id}-label`}>{name} Length</h2>
