@@ -1,6 +1,5 @@
 import { LengthController } from "./components/LengthController.js";
 import "./styles/App.css";
-import 'bootstrap';
 
 import React from "react";
 
@@ -47,7 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <div id="pomodoro-clock" className='container'>
+        <div id="pomodoro-clock" className='container .d-flex justify-content-center'>
           <h1>Pomodoro Clock</h1>
           <LengthController
             id="break"

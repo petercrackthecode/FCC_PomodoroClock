@@ -1,6 +1,14 @@
+@mixin Border($color, $margin) {
+    border: $color solid $margin;
+}
+
 #app {
     width: 100vw;
     height: 100vh;
     padding: 0;
     margin: 0;
+
+    #pomodoro-clock {
+        @include Border(red, 2px);
+    }
 }
