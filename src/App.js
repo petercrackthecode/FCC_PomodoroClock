@@ -46,20 +46,22 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <div id="pomodoro-clock" className='container .d-flex justify-content-center'>
-          <h1>Pomodoro Clock</h1>
-          <LengthController
-            id="break"
-            m_length={this.state.m_breakLength}
-            handleIncrement={this.handleLimitIncrease}
-            handleDecrement={this.handleLimitDecrease}
-          />
-          <LengthController
-            id="session"
-            m_length={this.state.m_sessionLength}
-            handleIncrement={this.handleLimitIncrease}
-            handleDecrement={this.handleLimitDecrease}
-          />
+        <div id="pomodoro-clock" className='container'>
+          <h1 className='col-12 text-center'><strong>Pomodoro Clock</strong></h1>
+          <section className='row'>
+            <LengthController
+              id="break"
+              m_length={this.state.m_breakLength}
+              handleIncrement={this.handleLimitIncrease}
+              handleDecrement={this.handleLimitDecrease}
+            />
+            <LengthController
+              id="session"
+              m_length={this.state.m_sessionLength}
+              handleIncrement={this.handleLimitIncrease}
+              handleDecrement={this.handleLimitDecrease}
+            />
+          </section>
         </div>
       </div>
     );

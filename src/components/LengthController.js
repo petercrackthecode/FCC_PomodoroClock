@@ -16,9 +16,9 @@ export function LengthController(props) {
     };
 
     return (
-        <div id={props.id}>
+        <div id={props.id} className='col-6 text-center'>
             <h2 id={`${id}-label`}>{name} Length</h2>
-            <section className='toggle'>
+            <section className='toggle row'>
                 <img id={`${id}-increment`}/>
                 <h2 id={`${id}-length`} className='length'>{props.m_length}</h2>
                 <img id={`${id}-decrement`}/>
