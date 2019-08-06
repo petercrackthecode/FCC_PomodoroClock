@@ -1,5 +1,4 @@
-import Break from './components/Break.js';
-import Session from './components/Session.js';
+import {LengthController} from './components/LengthController.js';
 import "./styles/App.css";
 
 import React from "react";
@@ -12,8 +11,8 @@ class App extends React.Component {
       <div id="app">
         <div id='pomodoro-clock'>
           <h1>Pomodoro Clock</h1>
-          <Break/>
-          <Session/>
+          <LengthController id='break' m_length={this.state.m_breakLength}/>
+          <LengthController id='session' m_length={this.state.m_sessionLength}/>
         </div>
       </div>);
   }
