@@ -8,11 +8,11 @@ export function LengthController(props) {
     const m_sessionMax= 60, m_sessionMin= 5;
 
     const handleIncrement= () => {
-        props.handleIncrement(sectionStep, m_sessionMax);
+        props.handleIncrement(props.id, sectionStep, m_sessionMax);
     };
 
     const handleDecrement= () => {
-        props.handleDecrement(sectionStep, m_sessionMin);
+        props.handleDecrement(props.id, sectionStep, m_sessionMin);
     };
 
     return (
