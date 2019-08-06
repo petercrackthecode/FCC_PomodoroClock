@@ -3,25 +3,20 @@ import "./styles/App.css";
 
 import React from "react";
 
-const SectionType = {
-  BREAK: "break",
-  SESSION: "session"
-};
-
 class App extends React.Component {
   state = {
     m_sessionLength: 25,
     m_breakLength: 5
   };
 
-  handleLimitIncrease = async (type = null, step, upperLimit) => {
+  handleLimitIncrease = async (type = "", step, upperLimit) => {
     switch (type) {
-      case SectionType.BREAK:
+      case "break":
         const newBreakLength= this.state.m_breakLength + step;
         if (newBreakLength <= upperLimit)
           await this.setState({m_breakLength: newBreakLength});
         break;
-      case SectionType.SESSION:
+      case "session":
         const newSessionLength= this.state.m_sessionLength + step;
         if (newSessionLength <= upperLimit)
           await this.setState({m_sessionLength: newSessionLength});
@@ -33,12 +28,12 @@ class App extends React.Component {
 
   handleLimitDecrease = async (type = null, step, lowerLimit) => {
     switch (type) {
-      case SectionType.BREAK:
+      case "break":
         const newBreakLength= this.state.m_breakLength - step;
         if (newBreakLength >= lowerLimit)
           await this.setState({m_breakLength: newBreakLength});
         break;
-      case SectionType.SESSION:
+      case "session":
         const newSessionLength= this.state.m_sessionLength - step;
         if (newSessionLength >= lowerLimit)
           await this.setState({m_sessionLength: newSessionLength});
