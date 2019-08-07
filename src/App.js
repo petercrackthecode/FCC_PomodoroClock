@@ -1,4 +1,5 @@
 import { LengthController } from "./components/LengthController.js";
+import TimeCounter from "./components/TimeCounter.js";
 import "./styles/App.css";
 
 import React from "react";
@@ -65,7 +66,7 @@ class App extends React.Component {
           </section>
           <section>
             <h2 id='time-label'>Time</h2>
-            <TimeCounter/>
+            <TimeCounter m_timeLeft={this.state.m_timeLeft}/>
           </section>
         </div>
       </div>

@@ -7,5 +7,17 @@
 #app #pomodoro-clock {
   border: red solid 2px;
 }
+#app #pomodoro-clock .button {
+  border-radius: 10px;
+  background-color: #3d3d48;
+}
+#app #pomodoro-clock .button::before {
+  content: "";
+  background-color: white;
+}
+#app #pomodoro-clock .button::after {
+  content: "";
+  background-color: white;
+}
 
 /*# sourceMappingURL=App.css.map */

@@ -10,5 +10,20 @@
 
     #pomodoro-clock {
         @include Border(red, 2px);
+
+        .button {
+            border-radius: 10px;
+            background-color: rgb(61, 61, 72);
+
+            &::before {
+                content: "";
+                background-color: white;
+            }
+
+            &::after {
+                content: "";
+                background-color: white;
+            }
+        }
     }
 }
