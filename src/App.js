@@ -6,7 +6,8 @@ import React from "react";
 class App extends React.Component {
   state = {
     m_sessionLength: 25,
-    m_breakLength: 5
+    m_breakLength: 5,
+    m_timeLeft: 25,
   };
 
   handleLimitIncrease = async (type = "", step, upperLimit) => {
@@ -61,6 +62,10 @@ class App extends React.Component {
               handleIncrement={this.handleLimitIncrease}
               handleDecrement={this.handleLimitDecrease}
             />
+          </section>
+          <section>
+            <h2 id='time-label'>Time</h2>
+            <TimeCounter/>
           </section>
         </div>
       </div>
