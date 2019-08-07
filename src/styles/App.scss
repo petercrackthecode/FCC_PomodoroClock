@@ -14,14 +14,19 @@
         .button {
             border-radius: 10px;
             background-color: rgb(61, 61, 72);
+            position: relative;
 
             &::before {
                 content: "";
+                position: absolute;
+                display: block;
                 background-color: white;
             }
 
             &::after {
                 content: "";
+                position: absolute;
+                display: block;
                 background-color: white;
             }
         }
