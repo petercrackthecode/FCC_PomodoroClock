@@ -8,7 +8,7 @@ class App extends React.Component {
   state = {
     m_sessionLength: 25,
     m_breakLength: 5,
-    m_timeLeft: 25,
+    m_timeLeft: '25:00',
     m_isClockRunning: false
   };
 
