@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export function StartStopBtn(props) {
-    return (<div id='start_stop'></div>);
+  return <div id="start_stop" />;
 }

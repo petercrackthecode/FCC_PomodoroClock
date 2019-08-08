@@ -1,7 +1,7 @@
 import { LengthController } from "./components/LengthController.js";
 import TimeCounter from "./components/TimeCounter.js";
-import {StartStopBtn as StartStop} from './components/StartStopBtn.js';
-import {ResetBtn} from "./components/ResetBtn.js";
+import { StartStopBtn as StartStop } from "./components/StartStopBtn.js";
+import { ResetBtn } from "./components/ResetBtn.js";
 import "./styles/App.css";
 
 import React from "react";
@@ -10,24 +10,24 @@ class App extends React.Component {
   state = {
     m_sessionLength: 25,
     m_breakLength: 5,
-    m_timeLeft: '25:00',
+    m_timeLeft: "25:00",
     m_isClockRunning: false
   };
 
-  timeStringToSecond = (time= '') => {
-    const minute= parseInt(time.substr(0, 2));
-    const second= parseInt(time.substr(3, 2));
-    const overallSecond= minute * 60 + second;
+  timeStringToSecond = (time = "") => {
+    const minute = parseInt(time.substr(0, 2));
+    const second = parseInt(time.substr(3, 2));
+    const overallSecond = minute * 60 + second;
 
     return overallSecond;
-  }
+  };
 
-  secondToTimeString= (secondAsWhole= 0) => {
-    const minute= ~~(secondAsWhole / 60);
-    const second= secondAsWhole - minute * 60;
+  secondToTimeString = (secondAsWhole = 0) => {
+    const minute = ~~(secondAsWhole / 60);
+    const second = secondAsWhole - minute * 60;
 
     return `${minute.toString()}:${second.toString()}`;
-  }
+  };
 
   handleLimitIncrease = async (type = "", step, upperLimit) => {
     if (!this.state.m_isClockRunning) {
@@ -74,7 +74,7 @@ class App extends React.Component {
           <h1 className="col-12 text-center">
             <strong>Pomodoro Clock</strong>
           </h1>
-          <section id='setup' className="row">
+          <section id="setup" className="row">
             <LengthController
               id="break"
               m_length={this.state.m_breakLength}
@@ -88,13 +88,13 @@ class App extends React.Component {
               handleDecrement={this.handleLimitDecrease}
             />
           </section>
-          <section id='time-stamp'>
+          <section id="time-stamp">
             <h2 id="time-label">Time</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
-          <section id='termination'>
-            <StartStop/>
-            <ResetBtn/>
+          <section id="termination">
+            <StartStop />
+            <ResetBtn />
           </section>
         </div>
       </div>
