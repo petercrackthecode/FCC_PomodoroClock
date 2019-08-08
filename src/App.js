@@ -1,5 +1,7 @@
 import { LengthController } from "./components/LengthController.js";
 import TimeCounter from "./components/TimeCounter.js";
+import {StartStopBtn as StartStop} from './components/StartStopBtn.js';
+import {ResetBtn} from "./components/ResetBtn.js";
 import "./styles/App.css";
 
 import React from "react";
@@ -72,7 +74,7 @@ class App extends React.Component {
           <h1 className="col-12 text-center">
             <strong>Pomodoro Clock</strong>
           </h1>
-          <section className="row">
+          <section id='setup' className="row">
             <LengthController
               id="break"
               m_length={this.state.m_breakLength}
@@ -89,6 +91,10 @@ class App extends React.Component {
           <section id='time-stamp'>
             <h2 id="time-label">Time</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
+          </section>
+          <section id='termination'>
+            <StartStop/>
+            <ResetBtn/>
           </section>
         </div>
       </div>
