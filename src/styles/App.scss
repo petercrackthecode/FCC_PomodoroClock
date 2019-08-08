@@ -10,6 +10,9 @@
 
     #pomodoro-clock {
         @include Border(red, 2px);
+        height: 100vh;
+        margin-top: 0px;
+        margin-bottom: 0px;
 
         .button {
             border-radius: 50%;
@@ -18,7 +21,7 @@
             width: 20px;
             height: 20px;
             padding: 0px;
-            margin: 0px;
+            margin: 10px;
             cursor: pointer;
         }
 
@@ -65,6 +68,11 @@
                 height: 2px;
                 margin-top: -1px;
             }
+        }
+
+        #break > section, #session > section {
+            display: flex;
+            justify-content: center;
         }
     }
 }

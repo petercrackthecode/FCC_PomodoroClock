@@ -6,6 +6,9 @@
 }
 #app #pomodoro-clock {
   border: red solid 2px;
+  height: 100vh;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 #app #pomodoro-clock .button {
   border-radius: 50%;
@@ -14,7 +17,7 @@
   width: 20px;
   height: 20px;
   padding: 0px;
-  margin: 0px;
+  margin: 10px;
   cursor: pointer;
 }
 #app #pomodoro-clock .increment::before {
@@ -51,6 +54,10 @@
   width: 15px;
   height: 2px;
   margin-top: -1px;
+}
+#app #pomodoro-clock #break > section, #app #pomodoro-clock #session > section {
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=App.css.map */

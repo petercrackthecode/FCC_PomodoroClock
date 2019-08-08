@@ -9,19 +9,20 @@ class App extends React.Component {
     m_sessionLength: 25,
     m_breakLength: 5,
     m_timeLeft: 25,
+    m_isClockRunning: false
   };
 
   handleLimitIncrease = async (type = "", step, upperLimit) => {
     switch (type) {
       case "break":
-        const newBreakLength= this.state.m_breakLength + step;
+        const newBreakLength = this.state.m_breakLength + step;
         if (newBreakLength <= upperLimit)
-          await this.setState({m_breakLength: newBreakLength});
+          await this.setState({ m_breakLength: newBreakLength });
         break;
       case "session":
-        const newSessionLength= this.state.m_sessionLength + step;
+        const newSessionLength = this.state.m_sessionLength + step;
         if (newSessionLength <= upperLimit)
-          await this.setState({m_sessionLength: newSessionLength});
+          await this.setState({ m_sessionLength: newSessionLength });
         break;
       default:
         break;
@@ -31,14 +32,14 @@ class App extends React.Component {
   handleLimitDecrease = async (type = null, step, lowerLimit) => {
     switch (type) {
       case "break":
-        const newBreakLength= this.state.m_breakLength - step;
+        const newBreakLength = this.state.m_breakLength - step;
         if (newBreakLength >= lowerLimit)
-          await this.setState({m_breakLength: newBreakLength});
+          await this.setState({ m_breakLength: newBreakLength });
         break;
       case "session":
-        const newSessionLength= this.state.m_sessionLength - step;
+        const newSessionLength = this.state.m_sessionLength - step;
         if (newSessionLength >= lowerLimit)
-          await this.setState({m_sessionLength: newSessionLength});
+          await this.setState({ m_sessionLength: newSessionLength });
         break;
       default:
         break;
@@ -48,9 +49,11 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <div id="pomodoro-clock" className='container'>
-          <h1 className='col-12 text-center'><strong>Pomodoro Clock</strong></h1>
-          <section className='row'>
+        <div id="pomodoro-clock" className="container text-center jumbotron">
+          <h1 className="col-12 text-center">
+            <strong>Pomodoro Clock</strong>
+          </h1>
+          <section className="row">
             <LengthController
               id="break"
               m_length={this.state.m_breakLength}
@@ -65,8 +68,8 @@ class App extends React.Component {
             />
           </section>
           <section>
-            <h2 id='time-label'>Time</h2>
-            <TimeCounter m_timeLeft={this.state.m_timeLeft}/>
+            <h2 id="time-label">Time</h2>
+            <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
         </div>
       </div>
