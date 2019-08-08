@@ -19,9 +19,9 @@ export function LengthController(props) {
         <div id={props.id} className='col-6 text-center'>
             <h2 id={`${id}-label`}>{name} Length</h2>
             <section className='toggle row'>
-                <div id={`${id}-increment`} className='button' onClick={handleIncrement}/>
+                <div id={`${id}-increment`} className='button increment' onClick={handleIncrement}/>
                 <h2 id={`${id}-length`} className='length'>{props.m_length}</h2>
-                <div id={`${id}-decrement`} className='button' onClick={handleDecrement}/>
+                <div id={`${id}-decrement`} className='button decrement' onClick={handleDecrement}/>
             </section>
         </div>
     );

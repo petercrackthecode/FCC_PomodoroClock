@@ -8,21 +8,49 @@
   border: red solid 2px;
 }
 #app #pomodoro-clock .button {
-  border-radius: 10px;
+  border-radius: 50%;
   background-color: #3d3d48;
   position: relative;
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
 }
-#app #pomodoro-clock .button::before {
+#app #pomodoro-clock .increment::before {
   content: "";
   position: absolute;
   display: block;
   background-color: white;
+  top: 50%;
+  left: 2.5px;
+  right: 2.5px;
+  width: 15px;
+  height: 2px;
+  margin-top: -1px;
 }
-#app #pomodoro-clock .button::after {
+#app #pomodoro-clock .increment::after {
   content: "";
   position: absolute;
   display: block;
   background-color: white;
+  height: 15px;
+  top: 2.5px;
+  width: 2px;
+  left: 50%;
+  margin-left: -1px;
+}
+#app #pomodoro-clock .decrement::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: white;
+  top: 50%;
+  left: 2.5px;
+  right: 2.5px;
+  width: 15px;
+  height: 2px;
+  margin-top: -1px;
 }
 
 /*# sourceMappingURL=App.css.map */
