@@ -73,17 +73,26 @@
 }
 #app #pomodoro-clock #terminator #start_stop {
   position: relative;
+  box-sizing: border-box;
 }
 #app #pomodoro-clock #terminator #start_stop::before {
   content: "";
+  outline: 2px solid red;
   margin-right: 20px;
-  background-color: transparent;
   width: 0;
   height: 0;
-  border-top: 20px solid transparent;
+  border-top: 20px solid red;
   border-bottom: 20px solid transparent;
-  border-left: 20px solid yellow;
+  border-left: 20px solid transparent;
   border-right: 20px solid transparent;
+  transform: rotate(90deg);
+}
+#app #pomodoro-clock #terminator #start_stop::after {
+  position: absolute;
+  content: " ";
+  width: 35px;
+  height: 35px;
+  background-color: green;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -90,17 +90,27 @@
             @include Border(2px, navy);
             #start_stop {
                 position: relative;
+                box-sizing: border-box;
 
                 &::before {
                     content: "";
+                    outline: 2px solid red;
                     margin-right: 20px;
-                    background-color: transparent;
                     width: 0;
                     height: 0;
-                    border-top: 20px solid transparent;
+                    border-top: 20px solid red;
                     border-bottom: 20px solid transparent;
-                    border-left: 20px solid yellow;
+                    border-left: 20px solid transparent;
                     border-right: 20px solid transparent;
+                    transform: rotate(90deg);
+                }
+
+                &::after {
+                    position: absolute;
+                    content: " ";
+                    width: 35px;
+                    height: 35px;
+                    background-color: green;
                 }
             }
         }
