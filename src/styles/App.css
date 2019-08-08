@@ -68,5 +68,22 @@
   border: 2px solid navy;
   border-radius: 30px;
 }
+#app #pomodoro-clock #terminator {
+  border: 2px solid navy;
+}
+#app #pomodoro-clock #terminator #start_stop {
+  position: relative;
+}
+#app #pomodoro-clock #terminator #start_stop::before {
+  content: "";
+  margin-right: 20px;
+  background-color: transparent;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid yellow;
+  border-right: 20px solid transparent;
+}
 
 /*# sourceMappingURL=App.css.map */

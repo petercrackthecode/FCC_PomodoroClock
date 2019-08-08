@@ -92,7 +92,7 @@ class App extends React.Component {
             <h2 id="time-label">Time</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
-          <section id="termination">
+          <section id="terminator">
             <StartStop />
             <ResetBtn />
           </section>

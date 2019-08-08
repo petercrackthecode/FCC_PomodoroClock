@@ -85,5 +85,24 @@
             @include Border(2px, navy);
             border-radius: 30px;
         }
+
+        #terminator {
+            @include Border(2px, navy);
+            #start_stop {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    margin-right: 20px;
+                    background-color: transparent;
+                    width: 0;
+                    height: 0;
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    border-left: 20px solid yellow;
+                    border-right: 20px solid transparent;
+                }
+            }
+        }
     }
 }
