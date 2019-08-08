@@ -67,7 +67,7 @@ class App extends React.Component {
               handleDecrement={this.handleLimitDecrease}
             />
           </section>
-          <section>
+          <section id='time-stamp'>
             <h2 id="time-label">Time</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>

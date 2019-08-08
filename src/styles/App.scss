@@ -14,9 +14,12 @@
         margin-top: 0px;
         margin-bottom: 0px;
 
+        section.row {
+            margin-bottom: 50px;
+        }
+
         .button {
             border-radius: 50%;
-            background-color: rgb(61, 61, 72);
             position: relative;
             width: 20px;
             height: 20px;
@@ -73,6 +76,14 @@
         #break > section, #session > section {
             display: flex;
             justify-content: center;
+        }
+
+        #time-stamp {
+            max-width: 400px;
+            height: 100px;
+            margin: auto;
+            @include Border(2px, navy);
+            border-radius: 30px;
         }
     }
 }

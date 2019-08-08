@@ -24,7 +24,7 @@ export function LengthController(props) {
       <section className="toggle row">
         <div
           id={`${id}-increment`}
-          className="button increment"
+          className="button increment btn-info btn-lg"
           onClick={handleIncrement}
         />
         <h2 id={`${id}-length`} className="length">
@@ -32,7 +32,7 @@ export function LengthController(props) {
         </h2>
         <div
           id={`${id}-decrement`}
-          className="button decrement"
+          className="button decrement btn-info btn-lg"
           onClick={handleDecrement}
         />
       </section>
