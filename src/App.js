@@ -16,6 +16,13 @@ class App extends React.Component {
 
   reduceTimeLeft= () => {
     const seconds= this.timeStringToSecond(this.state.m_timeLeft) - 1;
+
+    if (!seconds) {
+      this.setState({m_isClockRunning: false});
+      clearInterval(this.clockTick);
+      return;
+    }
+
     const newTime= this.secondToTimeString(seconds);
 
     this.setState({
@@ -39,7 +46,9 @@ class App extends React.Component {
   };
 
   handleLimitIncrease = async (type = "", step, upperLimit) => {
-    if (!this.state.m_isClockRunning) {
+    console.log("state.m_isClockRunning in " +
+      type + " section is " + this.state.m_isClockRunning);
+    if (this.state.m_isClockRunning) {
       switch (type) {
         case "break":
           const newBreakLength = this.state.m_breakLength + step;
@@ -78,7 +87,7 @@ class App extends React.Component {
 
   handleSwitch = async () => {
     console.log("handleSwitch is clicked ");
-
+    console.log("the current m_isClockRunning in handleSwitch is " + this.state.m_isClockRunning);
     this.setState(prevState => ({
       m_isClockRunning: !prevState.m_isClockRunning
     }));

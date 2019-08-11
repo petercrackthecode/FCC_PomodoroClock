@@ -152,7 +152,7 @@ $transition-time: 0.8;
                         box-shadow: 9px 10px 7px -5px #21183F;
                     }
                 }
-
+                /*
                 &.active {
                     border-color: transparent;
                     &:after {
@@ -168,6 +168,7 @@ $transition-time: 0.8;
                         box-shadow: inset ($size * 0.6) 0 0 0 $background;
                     }
                 }
+                */
             }
         }
     }
