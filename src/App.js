@@ -70,8 +70,8 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <div id="pomodoro-clock" className="container text-center jumbotron">
-          <h1 className="col-12 text-center">
+        <div id="pomodoro-clock" className="container jumbotron">
+          <h1 className="col-12">
             <strong>Pomodoro Clock</strong>
           </h1>
           <section id="setup" className="row">
@@ -92,7 +92,7 @@ class App extends React.Component {
             <h2 id="time-label">Time</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
-          <section id="terminator">
+          <section id="terminator" className='text-center'>
             <StartStop />
             <ResetBtn />
           </section>
