@@ -4,6 +4,8 @@
 
 $size: 30px;
 $ratio: 1.2;
+
+$background: #f9f9f9;
 $foreground: #2c3e50;
 
 $transition-time: 0.8;
@@ -158,6 +160,9 @@ $transition-time: 0.8;
                         background: $foreground;
                         position: absolute;
                         right: ($size * 0.1);
+                        top: ($size * -0.8);
+                        border-left: ($size * 0.4) solid $foreground;
+                        box-shadow: inset ($size * 0.6) 0 0 0 $background;
                     }
                 }
             }

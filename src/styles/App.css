@@ -130,6 +130,9 @@
   background: #2c3e50;
   position: absolute;
   right: 3px;
+  top: -24px;
+  border-left: 12px solid #2c3e50;
+  box-shadow: inset 18px 0 0 0 #f9f9f9;
 }
 
 /*# sourceMappingURL=App.css.map */
