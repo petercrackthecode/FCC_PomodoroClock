@@ -2,6 +2,9 @@
     border: $color solid $margin;
 }
 
+$size: 30px;
+$ratio: 1.2;
+
 #app {
     width: 100vw;
     height: 100vh;
@@ -13,6 +16,7 @@
         height: 100vh;
         margin-top: 0px;
         margin-bottom: 0px;
+        text-align: center;
 
         section.row {
             margin-bottom: 50px;
@@ -88,30 +92,15 @@
 
         #terminator {
             @include Border(2px, navy);
+            max-width: 200px;
             #start_stop {
                 position: relative;
                 box-sizing: border-box;
-
-                &::before {
-                    content: "";
-                    outline: 2px solid red;
-                    margin-right: 20px;
-                    width: 0;
-                    height: 0;
-                    border-top: 20px solid red;
-                    border-bottom: 20px solid transparent;
-                    border-left: 20px solid transparent;
-                    border-right: 20px solid transparent;
-                    transform: rotate(90deg);
-                }
-
-                &::after {
-                    position: absolute;
-                    content: " ";
-                    width: 35px;
-                    height: 35px;
-                    background-color: green;
-                }
+                width: 0;
+                height: 0;
+                border-top: $size solid transparent;
+                border-bottom: $size solid transparent;
+                border-left: ($size * $ratio) solid #2c3e50;
             }
         }
     }

@@ -9,6 +9,7 @@
   height: 100vh;
   margin-top: 0px;
   margin-bottom: 0px;
+  text-align: center;
 }
 #app #pomodoro-clock section.row {
   margin-bottom: 50px;
@@ -70,29 +71,16 @@
 }
 #app #pomodoro-clock #terminator {
   border: 2px solid navy;
+  max-width: 200px;
 }
 #app #pomodoro-clock #terminator #start_stop {
   position: relative;
   box-sizing: border-box;
-}
-#app #pomodoro-clock #terminator #start_stop::before {
-  content: "";
-  outline: 2px solid red;
-  margin-right: 20px;
   width: 0;
   height: 0;
-  border-top: 20px solid red;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  transform: rotate(90deg);
-}
-#app #pomodoro-clock #terminator #start_stop::after {
-  position: absolute;
-  content: " ";
-  width: 35px;
-  height: 35px;
-  background-color: green;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 36px solid #2c3e50;
 }
 
 /*# sourceMappingURL=App.css.map */
