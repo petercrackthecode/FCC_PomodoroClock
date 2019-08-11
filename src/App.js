@@ -15,8 +15,12 @@ class App extends React.Component {
   };
 
   reduceTimeLeft= () => {
-    let currentTime= this.state.m_timeLeft;
-    
+    const seconds= this.timeStringToSecond(this.state.m_timeLeft) - 1;
+    const newTime= this.secondToTimeString(seconds);
+
+    this.setState({
+      m_timeLeft: newTime,
+    });
   }
 
   timeStringToSecond = (time = "") => {
@@ -73,6 +77,8 @@ class App extends React.Component {
   };
 
   handleSwitch = async () => {
+    console.log("handleSwitch is clicked ");
+
     this.setState(prevState => ({
       m_isClockRunning: !prevState.m_isClockRunning
     }));
@@ -80,6 +86,8 @@ class App extends React.Component {
     if (this.state.m_isClockRunning)
       this.clockTick= await setInterval(this.reduceTimeLeft, 1000);
     else clearInterval(this.clockTick);
+
+    console.log("clock is running");
   };
 
   render() {
