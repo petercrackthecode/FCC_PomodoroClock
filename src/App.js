@@ -14,6 +14,11 @@ class App extends React.Component {
     m_isClockRunning: false
   };
 
+  reduceTimeLeft= () => {
+    let currentTime= this.state.m_timeLeft;
+    
+  }
+
   timeStringToSecond = (time = "") => {
     const minute = parseInt(time.substr(0, 2));
     const second = parseInt(time.substr(3, 2));
@@ -71,6 +76,10 @@ class App extends React.Component {
     this.setState(prevState => ({
       m_isClockRunning: !prevState.m_isClockRunning
     }));
+
+    if (this.state.m_isClockRunning)
+      this.clockTick= await setInterval(this.reduceTimeLeft, 1000);
+    else clearInterval(this.clockTick);
   };
 
   render() {
