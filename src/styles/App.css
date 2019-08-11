@@ -12,7 +12,7 @@
   text-align: center;
 }
 #app #pomodoro-clock section.row {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 #app #pomodoro-clock .button {
   border-radius: 50%;
@@ -64,10 +64,15 @@
 }
 #app #pomodoro-clock #time-stamp {
   max-width: 400px;
-  height: 100px;
-  margin: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
   border: 2px solid navy;
   border-radius: 30px;
+}
+#app #pomodoro-clock #time-stamp #time-left {
+  font-size: 50px;
 }
 #app #pomodoro-clock #terminator {
   border: 2px solid navy;

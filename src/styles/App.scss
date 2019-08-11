@@ -19,7 +19,7 @@ $ratio: 1.2;
         text-align: center;
 
         section.row {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
         .button {
@@ -84,15 +84,22 @@ $ratio: 1.2;
 
         #time-stamp {
             max-width: 400px;
-            height: 100px;
-            margin: auto;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 50px;
             @include Border(2px, navy);
             border-radius: 30px;
+
+            #time-left {
+                font-size: 50px;
+            }
         }
 
         #terminator {
             @include Border(2px, navy);
             max-width: 200px;
+
             #start_stop {
                 position: relative;
                 box-sizing: border-box;
