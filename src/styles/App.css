@@ -79,13 +79,57 @@
   max-width: 200px;
 }
 #app #pomodoro-clock #terminator #start_stop {
+  display: block;
   position: relative;
-  box-sizing: border-box;
   width: 0;
   height: 0;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   border-left: 36px solid #2c3e50;
+  position: relative;
+  z-index: 1;
+  transition: all 0.8;
+  -webkit-transition: all 0.8;
+  -moz-transition: all 0.8;
+  left: 6px;
+}
+#app #pomodoro-clock #terminator #start_stop:before {
+  content: "";
+  position: absolute;
+  top: -45px;
+  left: -69px;
+  bottom: -45px;
+  right: -21px;
+  border-radius: 50%;
+  border: 6px solid foreground;
+  z-index: 2;
+  transition: all 0.8;
+  -webkit-transition: all 0.8;
+  -moz-transition: all 0.8;
+}
+#app #pomodoro-clock #terminator #start_stop:after {
+  content: "";
+  opacity: 0;
+  transition: opacity 1.6;
+  -webkit-transition: opacity 1.6;
+  -moz-transition: opacity 1.6;
+}
+#app #pomodoro-clock #terminator #start_stop:hover:before, #app #pomodoro-clock #terminator #start_stop:focus:before {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+}
+#app #pomodoro-clock #terminator #start_stop.active {
+  border-color: transparent;
+}
+#app #pomodoro-clock #terminator #start_stop.active:after {
+  content: "";
+  opacity: 1;
+  width: 30px;
+  height: 48px;
+  background: #2c3e50;
+  position: absolute;
+  right: 3px;
 }
 
 /*# sourceMappingURL=App.css.map */
