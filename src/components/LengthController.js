@@ -4,7 +4,7 @@ export function LengthController(props) {
   const name = props.id[0].toUpperCase() + props.id.substring(1);
   const id = props.id;
   // 5 minutes jump when increment or decrement
-  const sectionStep = 5;
+  const sectionStep = 1;
   const m_sessionMax = 60,
     m_sessionMin = 5;
 
@@ -25,7 +25,7 @@ export function LengthController(props) {
         <div
           id={`${id}-increment`}
           className="button increment btn-info btn-lg"
-          onClick={handleIncrement}
+          onMouseDown={handleIncrement}
         />
         <h2 id={`${id}-length`} className="length">
           {props.m_length}
@@ -33,7 +33,7 @@ export function LengthController(props) {
         <div
           id={`${id}-decrement`}
           className="button decrement btn-info btn-lg"
-          onClick={handleDecrement}
+          onMouseDown={handleDecrement}
         />
       </section>
     </div>
