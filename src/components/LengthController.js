@@ -6,7 +6,7 @@ export function LengthController(props) {
   // 5 minutes jump when increment or decrement
   const sectionStep = 1;
   const m_sessionMax = 60,
-    m_sessionMin = 5;
+    m_sessionMin = 1;
 
   const handleIncrement = () => {
     props.handleIncrement(props.id, sectionStep, m_sessionMax);

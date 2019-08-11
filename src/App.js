@@ -67,6 +67,12 @@ class App extends React.Component {
     }
   };
 
+  handleSwitch = async () => {
+    this.setState(prevState => ({
+      m_isClockRunning: !prevState.m_isClockRunning
+    }));
+  };
+
   render() {
     return (
       <div id="app">
@@ -93,7 +99,7 @@ class App extends React.Component {
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
           <section id="terminator" className='container'>
-            <StartStop />
+            <StartStop handleSwitch={this.handleSwitch}/>
             <ResetBtn />
           </section>
         </div>

@@ -109,6 +109,7 @@ $transition-time: 0.8;
             #start_stop {
                 display: block;
                 position: relative;
+                cursor: pointer;
                 width: 0;
                 height: 0;
                 border-top: $size solid transparent;
