@@ -12,7 +12,7 @@ class App extends React.Component {
     m_breakLength: 5,
     m_timeLeft: "25:00",
     m_isClockRunning: false,
-    m_runningSession: 'break',
+    m_isSessionRunning: true,
   };
 
   playSound = async () => {
@@ -21,15 +21,26 @@ class App extends React.Component {
 
   reduceTimeLeft= async () => {
     const seconds= this.timeStringToSecond(this.state.m_timeLeft) - 1;
+    let newTime= null;
 
     if (!seconds) {
       await this.playSound();
-      await this.setState({m_isClockRunning: false});
-      clearInterval(this.clockTick);
+      await this.setState(prevState => ({
+        m_isSessionRunning: !prevState.m_isSessionRunning
+      }));
+
+      newTime= this.secondToTimeString((this.state.m_isSessionRunning ?
+                                        this.state.m_sessionLength :
+                                        this.state.m_breakLength) * 60);
+
+      await this.setState({
+        m_timeLeft: newTime
+      });
+
       return;
     }
 
-    const newTime= this.secondToTimeString(seconds);
+    newTime= this.secondToTimeString(seconds);
 
     await this.setState({
       m_timeLeft: newTime,
@@ -58,13 +69,27 @@ class App extends React.Component {
       switch (type) {
         case "break":
           const newBreakLength = this.state.m_breakLength + step;
-          if (newBreakLength <= upperLimit)
+          if (newBreakLength <= upperLimit) {
             await this.setState({ m_breakLength: newBreakLength });
+
+            if (!this.state.m_isSessionRunning) {
+              await this.setState({
+                m_timeLeft: this.secondToTimeString(newBreakLength * 60)
+              });
+            }
+          }
           break;
         case "session":
           const newSessionLength = this.state.m_sessionLength + step;
-          if (newSessionLength <= upperLimit)
+          if (newSessionLength <= upperLimit) {
             await this.setState({ m_sessionLength: newSessionLength });
+
+            if (this.state.m_isSessionRunning) {
+              await this.setState({
+                m_timeLeft: this.secondToTimeString(newSessionLength * 60),
+              });
+            }
+          }
           break;
         default:
           break;
@@ -77,13 +102,27 @@ class App extends React.Component {
       switch (type) {
         case "break":
           const newBreakLength = this.state.m_breakLength - step;
-          if (newBreakLength >= lowerLimit)
+          if (newBreakLength >= lowerLimit) {
             await this.setState({ m_breakLength: newBreakLength });
+
+            if (!this.state.m_isSessionRunning) {
+              await this.setState({
+                m_timeLeft: this.secondToTimeString(newBreakLength * 60)
+              });
+            }
+          }
           break;
         case "session":
           const newSessionLength = this.state.m_sessionLength - step;
-          if (newSessionLength >= lowerLimit)
+          if (newSessionLength >= lowerLimit) {
             await this.setState({ m_sessionLength: newSessionLength });
+
+            if (this.state.m_isSessionRunning) {
+              await this.setState({
+                m_timeLeft: this.secondToTimeString(newSessionLength * 60),
+              });
+            }
+          }
           break;
         default:
           break;
