@@ -15,6 +15,10 @@ class App extends React.Component {
     m_isSessionRunning: true,
   };
 
+  formatTime = (timeString) => {
+
+  }
+
   playSound = async () => {
 
   };
@@ -162,7 +166,7 @@ class App extends React.Component {
             />
           </section>
           <section id="time-stamp">
-            <h2 id="time-label">Time</h2>
+            <h2 id="time-label">{this.state.m_isSessionRunning ? "Session" : "Break"}</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
           <section id="terminator" className='container'>
