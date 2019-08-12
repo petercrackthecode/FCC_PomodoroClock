@@ -139,5 +139,25 @@
   -moz-transform: scale(1.1);
   box-shadow: 9px 10px 7px -5px #21183F;
 }
+#app #pomodoro-clock #terminator #reset {
+  border: 5px solid #2c3e50;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 80px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.8 border;
+}
+#app #pomodoro-clock #terminator #reset:hover, #app #pomodoro-clock #terminator #reset:focus {
+  transform: scale(1.1);
+}
+#app #pomodoro-clock #terminator #reset .icono-sync {
+  transform: scale(1.8);
+  color: #2c3e50;
+  margin-top: -8px;
+}
 
 /*# sourceMappingURL=App.css.map */

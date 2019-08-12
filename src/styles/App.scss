@@ -170,6 +170,30 @@ $transition-time: 0.8;
                 }
                 */
             }
+
+            #reset {
+                @include Border(5px, $foreground);
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                display: block;
+                text-align: center;
+                line-height: 80px;
+                font-weight: 900;
+                cursor: pointer;
+                transition: $transition-time border;
+
+                &:hover, &:focus {
+                    transform: scale(1.1);
+                }
+
+
+                .icono-sync {
+                    transform: scale(1.8);
+                    color: $foreground;
+                    margin-top: -8px;
+                }
+            }
         }
     }
 }
