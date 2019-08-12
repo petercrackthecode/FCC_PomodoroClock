@@ -87,8 +87,7 @@ class App extends React.Component {
 
   handleSwitch = async () => {
     console.log("handleSwitch is clicked ");
-    console.log("the current m_isClockRunning in handleSwitch is " + this.state.m_isClockRunning);
-    this.setState(prevState => ({
+    await this.setState(prevState => ({
       m_isClockRunning: !prevState.m_isClockRunning
     }));
 

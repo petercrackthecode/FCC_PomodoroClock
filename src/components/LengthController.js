@@ -3,7 +3,7 @@ import React from "react";
 export function LengthController(props) {
   const name = props.id[0].toUpperCase() + props.id.substring(1);
   const id = props.id;
-  // 5 minutes jump when increment or decrement
+  // 1 minutes jump when increment or decrement
   const sectionStep = 1;
   const m_sessionMax = 60,
     m_sessionMin = 1;
