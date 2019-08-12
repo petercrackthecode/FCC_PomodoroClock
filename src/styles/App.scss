@@ -172,19 +172,32 @@ $transition-time: 0.8;
             }
 
             #reset {
-                @include Border(5px, $foreground);
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
                 display: block;
                 text-align: center;
                 line-height: 80px;
                 font-weight: 900;
                 cursor: pointer;
-                transition: $transition-time border;
+                position: relative;
+                transition: $transition-time all;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: ($size * -0.3);
+                    left: ($size * 4.7);
+                    bottom: (5px);
+                    right: ($size * 4.7);
+                    border-radius: 50%;
+                    border: ($size * 0.2) solid $foreground;
+                    z-index: 2;
+                    transition: all $transition-time;
+                }
 
                 &:hover, &:focus {
-                    transform: scale(1.1);
+                    &:before {
+                        transform: scale(1.1);
+                        box-shadow: 9px 10px 7px -5px #21183F;
+                    }
                 }
 
 

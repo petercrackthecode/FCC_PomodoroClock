@@ -140,19 +140,29 @@
   box-shadow: 9px 10px 7px -5px #21183F;
 }
 #app #pomodoro-clock #terminator #reset {
-  border: 5px solid #2c3e50;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
   display: block;
   text-align: center;
   line-height: 80px;
   font-weight: 900;
   cursor: pointer;
-  transition: 0.8 border;
+  position: relative;
+  transition: 0.8 all;
 }
-#app #pomodoro-clock #terminator #reset:hover, #app #pomodoro-clock #terminator #reset:focus {
+#app #pomodoro-clock #terminator #reset:before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 141px;
+  bottom: 5px;
+  right: 141px;
+  border-radius: 50%;
+  border: 6px solid #2c3e50;
+  z-index: 2;
+  transition: all 0.8;
+}
+#app #pomodoro-clock #terminator #reset:hover:before, #app #pomodoro-clock #terminator #reset:focus:before {
   transform: scale(1.1);
+  box-shadow: 9px 10px 7px -5px #21183F;
 }
 #app #pomodoro-clock #terminator #reset .icono-sync {
   transform: scale(1.8);
