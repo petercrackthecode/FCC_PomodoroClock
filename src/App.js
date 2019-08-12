@@ -13,6 +13,9 @@ class App extends React.Component {
     m_timeLeft: "25:00",
     m_isClockRunning: false,
     m_isSessionRunning: true,
+    m_alarmColor: {
+      color: 'black',
+    },
   };
 
   formatTime= (time) => {
@@ -36,7 +39,10 @@ class App extends React.Component {
 
     if (seconds === -1) {
       await this.setState(prevState => ({
-        m_isSessionRunning: !prevState.m_isSessionRunning
+        m_isSessionRunning: !prevState.m_isSessionRunning,
+        m_alarmColor: {
+          color: 'black',
+        },
       }));
 
       newTime= this.secondToTimeString((this.state.m_isSessionRunning ?
@@ -46,19 +52,30 @@ class App extends React.Component {
       await this.setState({
         m_timeLeft: this.formatTime(newTime)
       });
-
-      return;
     }
+    else {
+      if (seconds === 0) {
+        await this.setState({
+          m_alarmColor: {
+            color: 'red'
+          },
+        });
+        await this.playSound();
+      }
+      else {
+        await this.setState({
+          m_alarmColor: {
+            color: 'black'
+          }
+        });
+      }
 
-    if (seconds === 0) {
-      await this.playSound();
+      newTime= this.secondToTimeString(seconds);
+
+      await this.setState({
+        m_timeLeft: this.formatTime(newTime),
+      });
     }
-
-    newTime= this.secondToTimeString(seconds);
-
-    await this.setState({
-      m_timeLeft: this.formatTime(newTime),
-    });
   }
 
   timeStringToSecond = (time = "") => {
@@ -175,7 +192,7 @@ class App extends React.Component {
               handleDecrement={this.handleLimitDecrease}
             />
           </section>
-          <section id="time-stamp">
+          <section id="time-stamp" style={this.state.m_alarmColor}>
             <h2 id="time-label">{this.state.m_isSessionRunning ? "Session" : "Break"}</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
