@@ -15,9 +15,16 @@ class App extends React.Component {
     m_isSessionRunning: true,
   };
 
-  formatTime = (timeString) => {
-
-  }
+  formatTime= (time) => {
+    const colonPos= time.indexOf(':');
+    let minutes= time.substr(0, colonPos);
+    let seconds= time.substr(colonPos + 1);
+  
+    if (minutes.length === 1) minutes= '0' + minutes;
+    if (seconds.length === 1) seconds= '0' + seconds;
+  
+    return minutes + ':' + seconds;
+  };
 
   playSound = async () => {
 
@@ -27,8 +34,7 @@ class App extends React.Component {
     const seconds= this.timeStringToSecond(this.state.m_timeLeft) - 1;
     let newTime= null;
 
-    if (!seconds) {
-      await this.playSound();
+    if (seconds === -1) {
       await this.setState(prevState => ({
         m_isSessionRunning: !prevState.m_isSessionRunning
       }));
@@ -38,16 +44,20 @@ class App extends React.Component {
                                         this.state.m_breakLength) * 60);
 
       await this.setState({
-        m_timeLeft: newTime
+        m_timeLeft: this.formatTime(newTime)
       });
 
       return;
     }
 
+    if (seconds === 0) {
+      await this.playSound();
+    }
+
     newTime= this.secondToTimeString(seconds);
 
     await this.setState({
-      m_timeLeft: newTime,
+      m_timeLeft: this.formatTime(newTime),
     });
   }
 
@@ -78,7 +88,7 @@ class App extends React.Component {
 
             if (!this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: this.secondToTimeString(newBreakLength * 60)
+                m_timeLeft: this.formatTime(this.secondToTimeString(newBreakLength * 60))
               });
             }
           }
@@ -90,7 +100,7 @@ class App extends React.Component {
 
             if (this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: this.secondToTimeString(newSessionLength * 60),
+                m_timeLeft: this.formatTime(this.secondToTimeString(newSessionLength * 60)),
               });
             }
           }
@@ -111,7 +121,7 @@ class App extends React.Component {
 
             if (!this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: this.secondToTimeString(newBreakLength * 60)
+                m_timeLeft: this.formatTime(this.secondToTimeString(newBreakLength * 60))
               });
             }
           }
@@ -123,7 +133,7 @@ class App extends React.Component {
 
             if (this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: this.secondToTimeString(newSessionLength * 60),
+                m_timeLeft: this.formatTime(this.secondToTimeString(newSessionLength * 60)),
               });
             }
           }
