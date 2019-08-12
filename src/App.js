@@ -11,21 +11,27 @@ class App extends React.Component {
     m_sessionLength: 25,
     m_breakLength: 5,
     m_timeLeft: "25:00",
-    m_isClockRunning: false
+    m_isClockRunning: false,
+    m_runningSession: 'break',
   };
 
-  reduceTimeLeft= () => {
+  playSound = async () => {
+
+  };
+
+  reduceTimeLeft= async () => {
     const seconds= this.timeStringToSecond(this.state.m_timeLeft) - 1;
 
     if (!seconds) {
-      this.setState({m_isClockRunning: false});
+      await this.playSound();
+      await this.setState({m_isClockRunning: false});
       clearInterval(this.clockTick);
       return;
     }
 
     const newTime= this.secondToTimeString(seconds);
 
-    this.setState({
+    await this.setState({
       m_timeLeft: newTime,
     });
   }
@@ -48,7 +54,7 @@ class App extends React.Component {
   handleLimitIncrease = async (type = "", step, upperLimit) => {
     console.log("state.m_isClockRunning in " +
       type + " section is " + this.state.m_isClockRunning);
-    if (this.state.m_isClockRunning) {
+    if (!this.state.m_isClockRunning) {
       switch (type) {
         case "break":
           const newBreakLength = this.state.m_breakLength + step;
@@ -86,7 +92,6 @@ class App extends React.Component {
   };
 
   handleSwitch = async () => {
-    console.log("handleSwitch is clicked ");
     await this.setState(prevState => ({
       m_isClockRunning: !prevState.m_isClockRunning
     }));
@@ -94,8 +99,6 @@ class App extends React.Component {
     if (this.state.m_isClockRunning)
       this.clockTick= await setInterval(this.reduceTimeLeft, 1000);
     else clearInterval(this.clockTick);
-
-    console.log("clock is running");
   };
 
   render() {
