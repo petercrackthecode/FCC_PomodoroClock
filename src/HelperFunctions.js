@@ -1,4 +1,4 @@
-const formatTime= (time) => {
+export const formatTime= (time) => {
     const colonPos= time.indexOf(':');
     let minutes= time.substr(0, colonPos);
     let seconds= time.substr(colonPos + 1);
@@ -9,4 +9,17 @@ const formatTime= (time) => {
     return minutes + ':' + seconds;
 };
 
-export default formatTime;
+export const timeStringToSecond = (time = "") => {
+    const minute = parseInt(time.substr(0, 2));
+    const second = parseInt(time.substr(3, 2));
+    const overallSecond = minute * 60 + second;
+
+    return overallSecond;
+};
+
+export const secondToTimeString = (secondAsWhole = 0) => {
+    const minute = ~~(secondAsWhole / 60);
+    const second = secondAsWhole - minute * 60;
+
+    return `${minute.toString()}:${second.toString()}`;
+};

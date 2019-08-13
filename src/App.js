@@ -20,8 +20,6 @@ class App extends React.Component {
     },
   };
 
-
-
   playSound = async () => {
 
   };
@@ -32,7 +30,7 @@ class App extends React.Component {
   }
 
   reduceTimeLeft= async () => {
-    const seconds= this.timeStringToSecond(this.state.m_timeLeft) - 1;
+    const seconds= fn.timeStringToSecond(this.state.m_timeLeft) - 1;
     let newTime= null;
 
     if (seconds === -1) {
@@ -43,7 +41,7 @@ class App extends React.Component {
         },
       }));
 
-      newTime= this.secondToTimeString((this.state.m_isSessionRunning ?
+      newTime= fn.secondToTimeString((this.state.m_isSessionRunning ?
                                         this.state.m_sessionLength :
                                         this.state.m_breakLength) * 60);
 
@@ -68,28 +66,13 @@ class App extends React.Component {
         });
       }
 
-      newTime= this.secondToTimeString(seconds);
+      newTime= fn.secondToTimeString(seconds);
 
       await this.setState({
         m_timeLeft: fn.formatTime(newTime),
       });
     }
   }
-
-  timeStringToSecond = (time = "") => {
-    const minute = parseInt(time.substr(0, 2));
-    const second = parseInt(time.substr(3, 2));
-    const overallSecond = minute * 60 + second;
-
-    return overallSecond;
-  };
-
-  secondToTimeString = (secondAsWhole = 0) => {
-    const minute = ~~(secondAsWhole / 60);
-    const second = secondAsWhole - minute * 60;
-
-    return `${minute.toString()}:${second.toString()}`;
-  };
 
   handleLimitIncrease = async (type = "", step, upperLimit) => {
     console.log("state.m_isClockRunning in " +
@@ -103,7 +86,7 @@ class App extends React.Component {
 
             if (!this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: fn.formatTime(this.secondToTimeString(newBreakLength * 60))
+                m_timeLeft: fn.formatTime(fn.secondToTimeString(newBreakLength * 60))
               });
             }
           }
@@ -115,7 +98,7 @@ class App extends React.Component {
 
             if (this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: fn.formatTime(this.secondToTimeString(newSessionLength * 60)),
+                m_timeLeft: fn.formatTime(fn.secondToTimeString(newSessionLength * 60)),
               });
             }
           }
@@ -136,7 +119,7 @@ class App extends React.Component {
 
             if (!this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: fn.formatTime(this.secondToTimeString(newBreakLength * 60))
+                m_timeLeft: fn.formatTime(fn.secondToTimeString(newBreakLength * 60))
               });
             }
           }
@@ -148,7 +131,7 @@ class App extends React.Component {
 
             if (this.state.m_isSessionRunning) {
               await this.setState({
-                m_timeLeft: fn.formatTime(this.secondToTimeString(newSessionLength * 60)),
+                m_timeLeft: fn.formatTime(fn.secondToTimeString(newSessionLength * 60)),
               });
             }
           }
