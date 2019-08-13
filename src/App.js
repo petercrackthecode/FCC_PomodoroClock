@@ -8,17 +8,19 @@ import * as fn from './HelperFunctions.js'
 
 import React from "react";
 
+const defaultState= {
+  m_sessionLength: 25,
+  m_breakLength: 5,
+  m_timeLeft: "25:00",
+  m_isClockRunning: false,
+  m_isSessionRunning: true,
+  m_alarmColor: {
+    color: 'black',
+  },
+}
+
 class App extends React.Component {
-  state = {
-    m_sessionLength: 25,
-    m_breakLength: 5,
-    m_timeLeft: "25:00",
-    m_isClockRunning: false,
-    m_isSessionRunning: true,
-    m_alarmColor: {
-      color: 'black',
-    },
-  };
+  state = defaultState;
 
   playSound = async () => {
 
@@ -26,7 +28,11 @@ class App extends React.Component {
 
 
   resetAll=  async () => {
+    await clearInterval(this.clockTick);
 
+    console.log("reset button is clicked");
+
+    await this.setState(defaultState);
   }
 
   reduceTimeLeft= async () => {
@@ -179,7 +185,7 @@ class App extends React.Component {
           </section>
           <section id="terminator" className='container'>
             <StartStop handleSwitch={this.handleSwitch}/>
-            <ResetBtn />
+            <ResetBtn resetAll={this.resetAll}/>
           </section>
         </div>
       </div>
