@@ -167,20 +167,20 @@ class App extends React.Component {
           </h1>
           <section id="setup" className="row">
             <LengthController
-              id="break"
+              m_id="break"
               m_length={this.state.m_breakLength}
               handleIncrement={this.handleLimitIncrease}
               handleDecrement={this.handleLimitDecrease}
             />
             <LengthController
-              id="session"
+              m_id="session"
               m_length={this.state.m_sessionLength}
               handleIncrement={this.handleLimitIncrease}
               handleDecrement={this.handleLimitDecrease}
             />
           </section>
           <section id="time-stamp" style={this.state.m_alarmColor}>
-            <h2 id="time-label">{this.state.m_isSessionRunning ? "Session" : "Break"}</h2>
+            <h2 id="timer-label">{this.state.m_isSessionRunning ? "Session" : "Break"}</h2>
             <TimeCounter m_timeLeft={this.state.m_timeLeft} />
           </section>
           <section id="terminator" className='container'>
