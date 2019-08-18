@@ -1,3 +1,5 @@
+@import url(//db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital);
+
 @mixin Border($color, $margin) {
   border: $color solid $margin;
 }
@@ -96,7 +98,8 @@ $transition-time: 0.8;
       border-radius: 30px;
 
       #time-left {
-        font-size: 50px;
+        font-size: 75px;
+        font-family: DS-Digital, sans-serif;
       }
     }
 
@@ -104,6 +107,10 @@ $transition-time: 0.8;
       @include Border(2px, navy);
       max-width: 400px;
       min-height: 100px;
+      margin-top: -10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       #start_stop {
         display: block;
@@ -172,6 +179,7 @@ $transition-time: 0.8;
       }
 
       #reset {
+        /*
         display: block;
         text-align: center;
         line-height: 80px;
@@ -200,6 +208,7 @@ $transition-time: 0.8;
             box-shadow: 9px 10px 7px -5px #21183f;
           }
         }
+        */
 
         .icono-sync {
           transform: scale(1.8);

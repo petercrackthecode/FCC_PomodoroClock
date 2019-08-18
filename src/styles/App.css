@@ -1,3 +1,4 @@
+@import url(//db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital);
 #app #pomodoro-clock .decrement::before, #app #pomodoro-clock .increment::before {
   content: "";
   position: absolute;
@@ -67,12 +68,17 @@
   border-radius: 30px;
 }
 #app #pomodoro-clock #time-stamp #time-left {
-  font-size: 50px;
+  font-size: 75px;
+  font-family: DS-Digital, sans-serif;
 }
 #app #pomodoro-clock #terminator {
   border: 2px solid navy;
   max-width: 400px;
   min-height: 100px;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #app #pomodoro-clock #terminator #start_stop {
   display: block;
@@ -135,29 +141,36 @@
   box-shadow: 9px 10px 7px -5px #21183f;
 }
 #app #pomodoro-clock #terminator #reset {
+  /*
   display: block;
   text-align: center;
   line-height: 80px;
   font-weight: 900;
   cursor: pointer;
   position: relative;
-  transition: 0.8 all;
-}
-#app #pomodoro-clock #terminator #reset:before {
-  content: "";
-  position: absolute;
-  top: -9px;
-  left: 141px;
-  bottom: 5px;
-  right: 141px;
-  border-radius: 50%;
-  border: 6px solid #2c3e50;
-  z-index: 2;
-  transition: all 0.8;
-}
-#app #pomodoro-clock #terminator #reset:hover:before, #app #pomodoro-clock #terminator #reset:focus:before {
-  transform: scale(1.1);
-  box-shadow: 9px 10px 7px -5px #21183f;
+  transition: $transition-time all;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: ($size * -0.3);
+    left: ($size * 4.7);
+    bottom: (5px);
+    right: ($size * 4.7);
+    border-radius: 50%;
+    border: ($size * 0.2) solid $foreground;
+    z-index: 2;
+    transition: all $transition-time;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      transform: scale(1.1);
+      box-shadow: 9px 10px 7px -5px #21183f;
+    }
+  }
+  */
 }
 #app #pomodoro-clock #terminator #reset .icono-sync {
   transform: scale(1.8);
