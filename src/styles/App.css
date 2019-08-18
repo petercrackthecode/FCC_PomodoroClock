@@ -1,4 +1,9 @@
 @import url(//db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital);
+.node {
+  display: block;
+  text-align: center;
+}
+
 #app #pomodoro-clock .decrement::before, #app #pomodoro-clock .increment::before {
   content: "";
   position: absolute;
@@ -73,12 +78,12 @@
 }
 #app #pomodoro-clock #terminator {
   border: 2px solid navy;
-  max-width: 400px;
   min-height: 100px;
   margin-top: -10px;
 }
 #app #pomodoro-clock #terminator #start_stop {
-  display: block;
+  display: flex;
+  justify-content: center;
   position: relative;
   cursor: pointer;
   width: 0;

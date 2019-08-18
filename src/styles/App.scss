@@ -4,6 +4,11 @@
   border: $color solid $margin;
 }
 
+.node {
+  display: block;
+  text-align: center;
+}
+
 %horizontal-line {
   &::before {
     content: "";
@@ -105,12 +110,12 @@ $transition-time: 0.8;
 
     #terminator {
       @include Border(2px, navy);
-      max-width: 400px;
       min-height: 100px;
       margin-top: -10px;
 
       #start_stop {
-        display: block;
+        display: flex;
+        justify-content: center;
         position: relative;
         cursor: pointer;
         width: 0;
