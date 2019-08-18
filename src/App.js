@@ -26,7 +26,6 @@ class App extends React.Component {
 
   };
 
-
   resetAll=  async () => {
     await clearInterval(this.clockTick);
 

@@ -24,7 +24,7 @@ export const secondToTimeString = (secondAsWhole = 0) => {
     return `${minute.toString()}:${second.toString()}`;
 };
 
-export function accurateInterval(fn, time) {
+export function accurateInterval() {
     (function() {
         window.accurateInterval = function(fn, time) {
             var cancel, nextAt, timeout, wrapper;
