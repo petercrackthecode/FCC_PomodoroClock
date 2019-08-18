@@ -107,13 +107,11 @@ $transition-time: 0.8;
 
     // we're having a problem here.
     #terminator {
-      @include Border(2px, green);
       min-height: 100px;
       width: 400px;
       margin: auto;
 
       #start_stop {
-        outline: 2px solid red;
         display: flex;
         justify-content: center;
         position: relative;
@@ -134,9 +132,9 @@ $transition-time: 0.8;
           content: "";
           position: absolute;
           top: ($size * -1.5);
-          left: ($size * -2.2);
+          left: ($size * -2.3);
           bottom: ($size * -1.5);
-          right: ($size * -0.5);
+          right: ($size * -0.6);
           border-radius: 50%;
           border: ($size * 0.2) solid $foreground;
           z-index: 2;
@@ -187,6 +185,38 @@ $transition-time: 0.8;
         position: relative;
         margin: ($size * 1.5) auto $size;
         transition: $transition-time all;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: ($size * -0.5);
+          left: ($size * -1);
+          bottom: ($size * 0.1);
+          right: ($size * -0.9);
+          border-radius: 50%;
+          border: ($size * 0.2) solid $foreground;
+          z-index: 2;
+          transition: all $transition-time;
+          -webkit-transition: all $transition-time;
+          -moz-transition: all $transition-time;
+        }
+        &:after {
+          content: "";
+          opacity: 0;
+          transition: opacity ($transition-time * 2);
+          -webkit-transition: opacity ($transition-time * 2);
+          -moz-transition: opacity ($transition-time * 2);
+        }
+
+        &:hover,
+        &:focus {
+          &:before {
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            box-shadow: 9px 10px 7px -5px #21183f;
+          }
+        }
 
         .icono-sync {
           transform: scale(1.8);
