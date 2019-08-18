@@ -50,7 +50,6 @@ $transition-time: 0.8;
 #app {
 
   #pomodoro-clock {
-    @include Border(red, 2px);
     height: 100vh;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -109,6 +108,9 @@ $transition-time: 0.8;
       min-height: 100px;
       width: 400px;
       margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       #start_stop {
         display: flex;
@@ -120,7 +122,7 @@ $transition-time: 0.8;
         border-top: $size solid transparent;
         border-bottom: $size solid transparent;
         border-left: ($size * $ratio) solid $foreground;
-        margin: ($size * 1.5) auto $size;
+        margin: ($size * 1) auto $size;
         z-index: 1;
         transition: all $transition-time;
         -webkit-transition: all $transition-time;

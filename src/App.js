@@ -7,6 +7,8 @@ import * as fn from './HelperFunctions.js'
 
 import React from "react";
 
+const infoColor= 'rgb(56, 142, 166)';
+
 const defaultState= {
   m_sessionLength: 25,
   m_breakLength: 5,
@@ -15,7 +17,7 @@ const defaultState= {
   m_isSessionRunning: true,
   m_alarmColor: {
     color: 'black',
-    border: '5px solid navy',
+    border: '5px solid ' + infoColor,
   },
 };
 
@@ -46,7 +48,7 @@ class App extends React.Component {
         m_isSessionRunning: !prevState.m_isSessionRunning,
         m_alarmColor: {
           color: 'black',
-          border: '5px solid navy'
+          border: '5px solid ' + infoColor,
         },
       }));
 
@@ -72,7 +74,7 @@ class App extends React.Component {
         await this.setState({
           m_alarmColor: {
             color: 'black',
-            border: '5px solid navy',
+            border: '5px solid ' + infoColor,
           }
         });
       }
