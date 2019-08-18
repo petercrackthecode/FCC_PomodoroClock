@@ -37,6 +37,7 @@ class App extends React.Component {
     const audio= document.getElementById('beep');
     if (!audio) return;
     audio.pause();
+    audio.currentTime= 0;
   }
 
   reduceTimeLeft= async () => {
