@@ -15,6 +15,7 @@ const defaultState= {
   m_isSessionRunning: true,
   m_alarmColor: {
     color: 'black',
+    border: '5px solid navy',
   },
 };
 
@@ -45,6 +46,7 @@ class App extends React.Component {
         m_isSessionRunning: !prevState.m_isSessionRunning,
         m_alarmColor: {
           color: 'black',
+          border: '5px solid navy'
         },
       }));
 
@@ -60,7 +62,8 @@ class App extends React.Component {
       if (seconds === 0) {
         await this.setState({
           m_alarmColor: {
-            color: 'red'
+            color: 'red',
+            border: '5px solid red',
           },
         });
         await this.playSound();
@@ -68,7 +71,8 @@ class App extends React.Component {
       else {
         await this.setState({
           m_alarmColor: {
-            color: 'black'
+            color: 'black',
+            border: '5px solid navy',
           }
         });
       }

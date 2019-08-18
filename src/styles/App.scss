@@ -96,7 +96,6 @@ $transition-time: 0.8;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 50px;
-      @include Border(2px, navy);
       border-radius: 30px;
 
       #time-left {
