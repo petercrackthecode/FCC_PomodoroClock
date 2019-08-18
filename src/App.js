@@ -1,5 +1,4 @@
 import { LengthController } from "./components/LengthController.js";
-import TimeCounter from "./components/TimeCounter.js";
 import { StartStopBtn as StartStop } from "./components/StartStopBtn.js";
 import { ResetBtn } from "./components/ResetBtn.js";
 import "./styles/App.css";
@@ -180,7 +179,7 @@ class App extends React.Component {
           </section>
           <section id="time-stamp" style={this.state.m_alarmColor}>
             <h2 id="timer-label">{this.state.m_isSessionRunning ? "Session" : "Break"}</h2>
-            <TimeCounter m_timeLeft={this.state.m_timeLeft} />
+            <div id="time-left">{this.state.m_timeLeft}</div>
           </section>
           <section id="terminator" className='container'>
             <StartStop handleSwitch={this.handleSwitch}/>
