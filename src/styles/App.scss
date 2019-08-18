@@ -1,4 +1,5 @@
 @import url(//db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital);
+@import './partial.scss';
 
 @mixin Border($color, $margin) {
   border: $color solid $margin;
@@ -47,10 +48,6 @@ $foreground: #2c3e50;
 $transition-time: 0.8;
 
 #app {
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
 
   #pomodoro-clock {
     @include Border(red, 2px);
@@ -60,7 +57,7 @@ $transition-time: 0.8;
     text-align: center;
 
     section.row {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .button {
@@ -108,12 +105,15 @@ $transition-time: 0.8;
       }
     }
 
+    // we're having a problem here.
     #terminator {
-      @include Border(2px, navy);
+      @include Border(2px, green);
       min-height: 100px;
-      margin-top: -10px;
+      width: 400px;
+      margin: auto;
 
       #start_stop {
+        outline: 2px solid red;
         display: flex;
         justify-content: center;
         position: relative;
@@ -136,7 +136,7 @@ $transition-time: 0.8;
           top: ($size * -1.5);
           left: ($size * -2.2);
           bottom: ($size * -1.5);
-          right: ($size * 0.3);
+          right: ($size * -0.5);
           border-radius: 50%;
           border: ($size * 0.2) solid $foreground;
           z-index: 2;
@@ -181,36 +181,12 @@ $transition-time: 0.8;
       }
 
       #reset {
-        /*
-        display: block;
-        text-align: center;
         line-height: 80px;
         font-weight: 900;
         cursor: pointer;
         position: relative;
+        margin: ($size * 1.5) auto $size;
         transition: $transition-time all;
-
-        &:before {
-          content: "";
-          position: absolute;
-          top: ($size * -0.3);
-          left: ($size * 4.7);
-          bottom: (5px);
-          right: ($size * 4.7);
-          border-radius: 50%;
-          border: ($size * 0.2) solid $foreground;
-          z-index: 2;
-          transition: all $transition-time;
-        }
-
-        &:hover,
-        &:focus {
-          &:before {
-            transform: scale(1.1);
-            box-shadow: 9px 10px 7px -5px #21183f;
-          }
-        }
-        */
 
         .icono-sync {
           transform: scale(1.8);
