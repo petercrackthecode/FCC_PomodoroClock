@@ -163,9 +163,11 @@ class App extends React.Component {
     return (
       <div id="app">
         <div id="pomodoro-clock" className="container jumbotron">
-          <h1 className="col-12">
-            <strong>Pomodoro Clock</strong>
-          </h1>
+          <div className='row'>
+            <h1 className="col-12">
+              <strong>Pomodoro Clock</strong>
+            </h1>
+          </div>
           <section id="setup" className="row">
             <LengthController
               m_id="break"
@@ -184,7 +186,7 @@ class App extends React.Component {
             <h2 id="timer-label">{this.state.m_isSessionRunning ? "Session" : "Break"}</h2>
             <div id="time-left">{this.state.m_timeLeft}</div>
           </section>
-          <section id="terminator" className='container'>
+          <section id="terminator" className='row'>
             <StartStop handleSwitch={this.handleSwitch}/>
             <ResetBtn resetAll={this.resetAll}/>
           </section>

@@ -76,9 +76,6 @@
   max-width: 400px;
   min-height: 100px;
   margin-top: -10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 #app #pomodoro-clock #terminator #start_stop {
   display: block;
