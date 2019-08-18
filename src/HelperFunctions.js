@@ -23,3 +23,4 @@ export const secondToTimeString = (secondAsWhole = 0) => {
 
     return `${minute.toString()}:${second.toString()}`;
 };
+
