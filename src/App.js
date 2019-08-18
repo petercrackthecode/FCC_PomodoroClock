@@ -16,13 +16,16 @@ const defaultState= {
   m_alarmColor: {
     color: 'black',
   },
-}
+};
 
 class App extends React.Component {
   state = defaultState;
 
   playSound = async () => {
-
+    const audio= document.getElementById('beep');
+    if (!audio) return;
+    audio.currentTime= 0;
+    audio.play();
   };
 
   resetAll=  async () => {
@@ -186,6 +189,7 @@ class App extends React.Component {
             <ResetBtn resetAll={this.resetAll}/>
           </section>
         </div>
+        <audio id='beep' preload='auto' src="https://goo.gl/65cBl1"/>
       </div>
     );
   }
