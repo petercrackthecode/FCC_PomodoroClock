@@ -33,10 +33,10 @@ class App extends React.Component {
 
   resetAll=  async () => {
     await clearInterval(this.clockTick);
-
-    console.log("reset button is clicked");
-
     await this.setState(defaultState);
+    const audio= document.getElementById('beep');
+    if (!audio) return;
+    audio.pause();
   }
 
   reduceTimeLeft= async () => {
