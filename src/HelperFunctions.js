@@ -2,7 +2,7 @@ export const formatTime= (time) => {
     const colonPos= time.indexOf(':');
     let minutes= parseInt(time.substr(0, colonPos));
     let seconds= parseInt(time.substr(colonPos + 1));
-  
+
     if (minutes < 10) minutes= '0' + minutes;
     if (seconds < 10) seconds= '0' + seconds;
 
