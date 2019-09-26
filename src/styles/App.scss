@@ -160,23 +160,20 @@ $transition-time: 0.8;
           }
         }
         &.active {
-          @include Border(red, 3px);
+          border-color: transparent;
+
           &:after {
-            // @include Border(yellow, 5px);
             content: "";
             opacity: 1;
-            width: ($size);
+            width: ($size * 1.1);
             height: ($size * 1.6);
             background: $foreground;
             position: absolute;
-            right: ($size * 0.1);
+            right: ($size * 0.3);
             top: ($size * -0.8);
             border-left: ($size * 0.4) solid $foreground;
+            border-right: ($size * 0.4) solid $foreground;
             box-shadow: inset ($size * 0.6) 0 0 0 $background;
-          }
-
-          &:before {
-            @include Border(pink, 3px);
           }
         }
       }
