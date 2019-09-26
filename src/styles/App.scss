@@ -1,5 +1,5 @@
 @import url(//db.onlinewebfonts.com/c/63f874d192fb3892d88d5e26f942b5e2?family=DS-Digital);
-@import './partial.scss';
+@import "./partial.scss";
 
 @mixin Border($color, $margin) {
   border: $color solid $margin;
@@ -48,7 +48,6 @@ $foreground: #2c3e50;
 $transition-time: 0.8;
 
 #app {
-
   #pomodoro-clock {
     height: 100vh;
     margin-top: 0px;
@@ -160,23 +159,26 @@ $transition-time: 0.8;
             box-shadow: 9px 10px 7px -5px #21183f;
           }
         }
-        /*
-                &.active {
-                    border-color: transparent;
-                    &:after {
-                        content: '';
-                        opacity: 1;
-                        width: ($size);
-                        height: ($size * 1.6);
-                        background: $foreground;
-                        position: absolute;
-                        right: ($size * 0.1);
-                        top: ($size * -0.8);
-                        border-left: ($size * 0.4) solid $foreground;
-                        box-shadow: inset ($size * 0.6) 0 0 0 $background;
-                    }
-                }
-                */
+        &.active {
+          @include Border(red, 3px);
+          &:after {
+            // @include Border(yellow, 5px);
+            content: "";
+            opacity: 1;
+            width: ($size);
+            height: ($size * 1.6);
+            background: $foreground;
+            position: absolute;
+            right: ($size * 0.1);
+            top: ($size * -0.8);
+            border-left: ($size * 0.4) solid $foreground;
+            box-shadow: inset ($size * 0.6) 0 0 0 $background;
+          }
+
+          &:before {
+            @include Border(pink, 3px);
+          }
+        }
       }
 
       #reset {

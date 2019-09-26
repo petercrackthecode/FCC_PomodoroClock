@@ -19,6 +19,7 @@ const defaultState= {
     color: 'black',
     border: '5px solid ' + infoColor,
   },
+  m_isPaused: true
 };
 
 class App extends React.Component {
@@ -164,6 +165,10 @@ class App extends React.Component {
     if (this.state.m_isClockRunning)
       this.clockTick= await setInterval(this.reduceTimeLeft, 1000);
     else clearInterval(this.clockTick);
+
+    await this.setState(currentState => ({
+      m_isPaused: !currentState.m_isPaused
+    }));
   };
 
   render() {
@@ -194,7 +199,7 @@ class App extends React.Component {
             <div id="time-left">{this.state.m_timeLeft}</div>
           </section>
           <section id="terminator" className='row'>
-            <StartStop handleSwitch={this.handleSwitch}/>
+            <StartStop handleSwitch={this.handleSwitch} isPaused={this.state.m_isPaused}/>
             <ResetBtn resetAll={this.resetAll}/>
           </section>
         </div>
